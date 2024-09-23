@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
+/* Container - tüm sayfayı üçe bölen ana flexbox */
+.container {
+    display: flex;
+    height: 100vh; /* Sayfanın tamamını kapsayacak şekilde ayarlanır */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Sol panel - küçük alan */
+.left-panel {
+    width: 15%; /* Sol alanın genişliği */
+    background-color: #f0f0f0; /* Hafif bir arka plan rengi */
+    padding: 20px;
+    overflow-y: auto; /* İçerik uzun olursa kaydırma */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sağ tarafa gölge ekleyerek ayırma */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Orta panel - haritanın olduğu alan */
+.center-panel {
+    width: 60%; /* Orta alanın genişliği */
+    background-color: #ffffff; /* Beyaz arka plan */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Sağ panel - butonların olduğu alan */
+.right-panel {
+    width: 25%; /* Sağ alanın genişliği */
+    background-color: #f0f0f0;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Sol tarafa gölge ekleyerek ayırma */
 }
 
-.App-link {
-  color: #61dafb;
+.right-panel button {
+    display: block; /* Butonlar alt alta gelsin */
+    margin-bottom: 10px; /* Butonlar arasında boşluk */
+    padding: 10px;
+    background-color: #007bff; /* Butonların rengi */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right-panel button:hover {
+    background-color: #0056b3; /* Hover etkisi */
+}
+
+/* Scroll durumunda scrollbar stilini düzenleme */
+.left-panel, .right-panel {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #e0e0e0;
+}
+
+.left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar {
+    width: 10px;
+}
+
+.left-panel::-webkit-scrollbar-thumb, .right-panel::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
 }
